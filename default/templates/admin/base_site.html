@@ -9,23 +9,25 @@
 
 {% block branding %}
     <h1>Caligraphe Admin Dashboard</h1>
-    <form method="get" action="" id="language-switcher-form" style="display:inline; margin-left:15px">
-        <select id="language-select" name="lang" onchange="
-            var selectedLang = this.value;
-            var currentUrl = window.location.href;
-            
-            var newUrl = currentUrl.replace(/\/(en|ru|ka)\//, '/' + selectedLang + '/');
-            
-            if (!newUrl.includes('/' + selectedLang + '/')) {
-                newUrl = currentUrl.replace(window.location.pathname, '/' + selectedLang + window.location.pathname);
-            }
-            window.location.href = newUrl;
-        ">
-            <option value="en" {% if request.LANGUAGE_CODE == 'en' %}selected{% endif %}>En</option>
-            <option value="ru" {% if request.LANGUAGE_CODE == 'ru' %}selected{% endif %}>Ru</option>
-            <option value="ka" {% if request.LANGUAGE_CODE == 'ka' %}selected{% endif %}>Ge</option>
-        </select>
-    </form>
+    {% if user.is_authenticated %}
+        <form method="get" action="" id="language-switcher-form" style="display:inline; margin-left:15px">
+            <select id="language-select" name="lang" onchange="
+                var selectedLang = this.value;
+                var currentUrl = window.location.href;
+                
+                var newUrl = currentUrl.replace(/\/(en|ru|ka)\//, '/' + selectedLang + '/');
+                
+                if (!newUrl.includes('/' + selectedLang + '/')) {
+                    newUrl = currentUrl.replace(window.location.pathname, '/' + selectedLang + window.location.pathname);
+                }
+                window.location.href = newUrl;
+            ">
+                <option value="en" {% if request.LANGUAGE_CODE == 'en' %}selected{% endif %}>En</option>
+                <option value="ru" {% if request.LANGUAGE_CODE == 'ru' %}selected{% endif %}>Ru</option>
+                <option value="ka" {% if request.LANGUAGE_CODE == 'ka' %}selected{% endif %}>Ge</option>
+            </select>
+        </form>
+    {% endif %}
 {% endblock %}
 
 {% block header %}

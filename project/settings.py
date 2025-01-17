@@ -133,22 +133,28 @@ TEMPLATES = [
 WSGI_APPLICATION = 'project.wsgi.application'
 
 # CORS
-CORS_ALLOW_ALL_ORIGINS = True  # This allows all origins
-CORS_ALLOW_CREDENTIALS = True  # This allows cookies and other credentials to be sent
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True  
 CORS_ALLOW_HEADERS = list(default_headers) + [
     'Authorization',
-    'Content-Type',  # If you need this header
+    'Content-Type',  
 ]
-CORS_ALLOW_METHODS = ['*']  # This allows all methods
+
+CORS_ALLOW_METHODS = ['*'] 
+
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     'http://127.0.0.1:3000',
-    'https://xhtml-uk-grams-base.trycloudflare.com'
 ]
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost','titles-paid-improved-indicators.trycloudflare.com', 'xhtml-uk-grams-base.trycloudflare.com']
-CSRF_TRUSTED_ORIGINS = ['http://localhost:8000', 'https://xhtml-uk-grams-base.trycloudflare.com']
+ALLOWED_HOSTS = [
+    '127.0.0.1', 
+    'localhost',
+]
 
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:8000', 
+]
 
 # Sessions
 SESSION_COOKIE_SECURE = False
@@ -163,13 +169,16 @@ SESSION_SAVE_EVERY_REQUEST = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  # or 'django.db.backends.mysql'
-        'NAME': 'railway',
-        'USER': 'root',
-        'PASSWORD': 'ngVdlBlHUdaKNhTujBCqaoUtNvesVHbM',
-        'HOST': 'mysql.railway.internal',
-        'PORT': '3306',
+        'NAME': 'defaultdb',
+        'USER': 'avnadmin',
+        'PASSWORD': 'AVNS_MAwqgjOKyCFVtz8M3O3',
+        'HOST': 'mysql-2e91a58d-shabashvilinika-e2db.c.aivencloud.com',
+        'PORT': '17842',  # or '3306' for MySQL
         'OPTIONS': {
             'charset': 'utf8mb4',
+            'ssl': {
+                'ca': r'C:\certificates\ca.pem',
+            }
         },
     }
 }
