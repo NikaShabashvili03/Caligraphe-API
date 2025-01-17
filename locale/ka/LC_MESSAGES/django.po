@@ -1,0 +1,140 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-17 05:23+0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: .\default\models\stage.py:9 .\default\models\work.py:8 .\main\admin.py:12
+#: .\main\models\stage.py:14 .\main\models\work.py:14 .\main\models\work.py:49
+msgid "Work"
+msgstr "რემონტის ტიპი"
+
+#: .\default\models\stage.py:12 .\default\models\work.py:5
+#: .\main\models\stage.py:17 .\main\models\supervisor.py:7
+msgid "Name"
+msgstr "სახელი"
+
+#: .\default\models\stage.py:15 .\main\models\stage.py:21
+msgid "Stage"
+msgstr "ეტაპი"
+
+#: .\default\models\stage.py:16 .\main\models\stage.py:22
+msgid "Stages"
+msgstr "ეტაპები"
+
+#: .\default\models\work.py:9 .\main\models\work.py:50
+msgid "Works"
+msgstr "რემონტის ტიპები"
+
+#: .\main\admin.py:11
+msgid "No Work Assigned"
+msgstr "სამუშაო არ არის დანიშნული"
+
+#: .\main\admin.py:21
+msgid "Copy Link"
+msgstr "მისამართის დაკოპირება"
+
+#: .\main\admin.py:28
+msgid "Progress"
+msgstr "პროგრესი"
+
+#: .\main\models\renovation.py:15
+msgid "Track"
+msgstr "მიკვლევა"
+
+#: .\main\models\renovation.py:18 .\main\models\supervisor.py:25
+msgid "Supervisor"
+msgstr "ზედამხედველი"
+
+#: .\main\models\renovation.py:20
+msgid "Address"
+msgstr "მისამართი"
+
+#: .\main\models\renovation.py:21
+msgid "Start Date"
+msgstr "დაწყების თარიღი"
+
+#: .\main\models\renovation.py:22
+msgid "End Date"
+msgstr "დასრულების თარიღი"
+
+#: .\main\models\renovation.py:38 .\main\models\work.py:24
+msgid "Renovation"
+msgstr "რემონტი"
+
+#: .\main\models\renovation.py:39
+msgid "Renovations"
+msgstr "რემონტები"
+
+#: .\main\models\session.py:12
+msgid "Session"
+msgstr "სესია"
+
+#: .\main\models\session.py:13
+msgid "Sessions"
+msgstr "სესიები"
+
+#: .\main\models\stage.py:18
+msgid "Is Complited"
+msgstr "დასრულებულია"
+
+#: .\main\models\stage.py:30
+msgid "Url"
+msgstr "მისამართი"
+
+#: .\main\models\stage.py:33
+msgid "Stage Image"
+msgstr "ეტაპის სურათი"
+
+#: .\main\models\stage.py:34
+msgid "Stage Images"
+msgstr "ეტაპების სურათები"
+
+#: .\main\models\supervisor.py:8
+msgid "Last Name"
+msgstr "გვარი"
+
+#: .\main\models\supervisor.py:9
+msgid "Email"
+msgstr "მაილი"
+
+#: .\main\models\supervisor.py:11
+msgid "Last Login"
+msgstr "ბოლო შესვლა"
+
+#: .\main\models\supervisor.py:12
+msgid "Created At"
+msgstr "შექმნის თარიღი"
+
+#: .\main\models\supervisor.py:26
+msgid "Supervisors"
+msgstr "ზედამხედველები"
+
+#: .\project\settings.py:46
+msgid "English"
+msgstr ""
+
+#: .\project\settings.py:47
+msgid "Georgian"
+msgstr ""
+
+#: .\project\settings.py:48
+msgid "Russian"
+msgstr ""
+
+#~ msgid "Not Completed"
+#~ msgstr "არ არის დასრულებული"

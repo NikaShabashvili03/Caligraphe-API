@@ -1,0 +1,140 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-17 05:23+0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\default\models\stage.py:9 .\default\models\work.py:8 .\main\admin.py:12
+#: .\main\models\stage.py:14 .\main\models\work.py:14 .\main\models\work.py:49
+msgid "Work"
+msgstr "Type of Renovation"
+
+#: .\default\models\stage.py:12 .\default\models\work.py:5
+#: .\main\models\stage.py:17 .\main\models\supervisor.py:7
+msgid "Name"
+msgstr "Name"
+
+#: .\default\models\stage.py:15 .\main\models\stage.py:21
+msgid "Stage"
+msgstr "Stage"
+
+#: .\default\models\stage.py:16 .\main\models\stage.py:22
+msgid "Stages"
+msgstr "Stages"
+
+#: .\default\models\work.py:9 .\main\models\work.py:50
+msgid "Works"
+msgstr "Types of Renovation"
+
+#: .\main\admin.py:11
+msgid "No Work Assigned"
+msgstr "No Work Assigned"
+
+#: .\main\admin.py:21
+msgid "Copy Link"
+msgstr "Copy the address"
+
+#: .\main\admin.py:28
+msgid "Progress"
+msgstr "Progress"
+
+#: .\main\models\renovation.py:15
+msgid "Track"
+msgstr "Tracking"
+
+#: .\main\models\renovation.py:18 .\main\models\supervisor.py:25
+msgid "Supervisor"
+msgstr "Supervisor"
+
+#: .\main\models\renovation.py:20
+msgid "Address"
+msgstr "Address"
+
+#: .\main\models\renovation.py:21
+msgid "Start Date"
+msgstr "Start Date"
+
+#: .\main\models\renovation.py:22
+msgid "End Date"
+msgstr "End Date"
+
+#: .\main\models\renovation.py:38 .\main\models\work.py:24
+msgid "Renovation"
+msgstr "Renovation"
+
+#: .\main\models\renovation.py:39
+msgid "Renovations"
+msgstr "Renovations"
+
+#: .\main\models\session.py:12
+msgid "Session"
+msgstr "Session"
+
+#: .\main\models\session.py:13
+msgid "Sessions"
+msgstr "Sessions"
+
+#: .\main\models\stage.py:18
+msgid "Is Complited"
+msgstr "Is Complited"
+
+#: .\main\models\stage.py:30
+msgid "Url"
+msgstr "Url"
+
+#: .\main\models\stage.py:33
+msgid "Stage Image"
+msgstr "Stage Image"
+
+#: .\main\models\stage.py:34
+msgid "Stage Images"
+msgstr "Stage Images"
+
+#: .\main\models\supervisor.py:8
+msgid "Last Name"
+msgstr "Last Name"
+
+#: .\main\models\supervisor.py:9
+msgid "Email"
+msgstr "Email"
+
+#: .\main\models\supervisor.py:11
+msgid "Last Login"
+msgstr "Last Login"
+
+#: .\main\models\supervisor.py:12
+msgid "Created At"
+msgstr "Created at"
+
+#: .\main\models\supervisor.py:26
+msgid "Supervisors"
+msgstr "Supervisors"
+
+#: .\project\settings.py:46
+msgid "English"
+msgstr ""
+
+#: .\project\settings.py:47
+msgid "Georgian"
+msgstr ""
+
+#: .\project\settings.py:48
+msgid "Russian"
+msgstr ""
+
+#~ msgid "Not Completed"
+#~ msgstr "Not Completed"
