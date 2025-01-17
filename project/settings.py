@@ -32,9 +32,6 @@ SECRET_KEY = 'django-insecure-f@^!#(oesgfx+=x)y&toxqpzn^fw+u8i50c06+z_te@tgm%1jx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
-
-
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
@@ -145,8 +142,13 @@ CORS_ALLOW_HEADERS = list(default_headers) + [
 CORS_ALLOW_METHODS = ['*']  # This allows all methods
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
-    'http://127.0.0.1:3000'
+    'http://127.0.0.1:3000',
+    'https://xhtml-uk-grams-base.trycloudflare.com'
 ]
+
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost','titles-paid-improved-indicators.trycloudflare.com', 'xhtml-uk-grams-base.trycloudflare.com']
+CSRF_TRUSTED_ORIGINS = ['http://localhost:8000', 'https://xhtml-uk-grams-base.trycloudflare.com']
+
 
 # Sessions
 SESSION_COOKIE_SECURE = False
@@ -161,11 +163,11 @@ SESSION_SAVE_EVERY_REQUEST = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  # or 'django.db.backends.mysql'
-        'NAME': 'caligraphe',
+        'NAME': 'railway',
         'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',  # or '3306' for MySQL
+        'PASSWORD': 'ngVdlBlHUdaKNhTujBCqaoUtNvesVHbM',
+        'HOST': 'monorail.proxy.rlwy.net',
+        'PORT': '42696',  # or '3306' for MySQL
         'OPTIONS': {
             'charset': 'utf8mb4',
         },
