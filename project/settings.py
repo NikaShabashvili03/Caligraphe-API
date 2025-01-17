@@ -145,15 +145,18 @@ CORS_ALLOW_METHODS = ['*']
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     'http://127.0.0.1:3000',
+    'https://caligraphe-api.onrender.com'
 ]
 
 ALLOWED_HOSTS = [
     '127.0.0.1', 
     'localhost',
+    'caligraphe-api.onrender.com'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     'http://localhost:8000', 
+    'https://caligraphe-api.onrender.com'
 ]
 
 # Sessions
