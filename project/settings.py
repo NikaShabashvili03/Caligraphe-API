@@ -166,8 +166,8 @@ DATABASES = {
         'NAME': 'railway',
         'USER': 'root',
         'PASSWORD': 'ngVdlBlHUdaKNhTujBCqaoUtNvesVHbM',
-        'HOST': 'monorail.proxy.rlwy.net',
-        'PORT': '42696',  # or '3306' for MySQL
+        'HOST': 'mysql.railway.internal',
+        'PORT': '3306',
         'OPTIONS': {
             'charset': 'utf8mb4',
         },
