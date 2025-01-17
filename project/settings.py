@@ -177,7 +177,7 @@ DATABASES = {
         'OPTIONS': {
             'charset': 'utf8mb4',
             'ssl': {
-                'ca': r'C:\certificates\ca.pem',
+                'ca': r'ca.pem',
             }
         },
     }
