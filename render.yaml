@@ -38,8 +38,8 @@ services:
       - fromGroup: django-settings # Add all variables from an environment group
 
   # A PostgreSQL database for the Django app
-  - type: postgres
-    name: your_database
+  - type: mysql
+    name: your_mysql_database
     plan: starter # Adjust based on your needs
     databaseName: mydb # Optional (Render may add a suffix)
     user: admin # Optional
