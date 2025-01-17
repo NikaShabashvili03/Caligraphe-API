@@ -1,0 +1,59 @@
+#################################################################
+# Example render.yaml for a Django App                       #
+# Do not use this file directly! Consult it for reference only.#
+#################################################################
+
+previews:
+  generation: automatic # Enable preview environments
+
+# List all services *except* PostgreSQL databases here
+services:
+  # A web service running Django on Python
+  - type: web
+    runtime: python
+    name: django-app
+    repo: https://github.com/NikaShabashvili03/Caligraphe-API # Replace with your repo
+    region: frankfurt # Default: oregon
+    plan: standard    # Default: starter
+    branch: prod      # Default: master
+    buildCommand: pip install -r requirements.txt
+    preDeployCommand: python manage.py migrate
+    startCommand: gunicorn project.wsgi:application # Adjust for your Django app
+    autoDeploy: false # Disable automatic deploys
+    maxShutdownDelaySeconds: 120 # Increase graceful shutdown period. Default: 30, Max: 300
+    domains: # Custom domains
+      - example.com
+      - www.example.org
+    envVars: # Environment variables
+      - key: DJANGO_SECRET_KEY
+        generateValue: true # Generate a base64-encoded value for security
+      - key: DATABASE_URL
+        fromDatabase: # Reference a property of a database
+          name: your_database
+          property: connectionString
+      - key: DJANGO_DEBUG
+        value: "false" # Set your environment to production
+      - key: ALLOWED_HOSTS
+        value: "['example.com', 'www.example.org']" # Add your allowed hosts
+      - fromGroup: django-settings # Add all variables from an environment group
+
+  # A PostgreSQL database for the Django app
+  - type: postgres
+    name: your_database
+    plan: starter # Adjust based on your needs
+    databaseName: mydb # Optional (Render may add a suffix)
+    user: admin # Optional
+    ipAllowList:
+      - source: 0.0.0.0/0
+        description: everywhere
+
+# Environment groups
+envVarGroups:
+  - name: django-settings
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: "your_project_name.settings.production"
+      - key: AWS_ACCESS_KEY_ID
+        sync: false # Prompt for a value in the Render Dashboard
+      - key: AWS_SECRET_ACCESS_KEY
+        sync: false # Prompt for a value in the Render Dashboard
