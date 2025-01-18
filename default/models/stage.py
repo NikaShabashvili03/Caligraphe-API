@@ -1,12 +1,12 @@
 from django.db import models
-from .work import Work
+from .service import Service
 from django.utils.translation import gettext_lazy as _
 
 class Stage(models.Model):
-    work = models.ManyToManyField(
-        Work,
+    service = models.ManyToManyField(
+        Service,
         related_name="stages",
-        verbose_name = _("Work")
+        verbose_name = _("Service")
     )
     
     name = models.CharField(max_length=100, verbose_name=_('Name'))
@@ -16,5 +16,5 @@ class Stage(models.Model):
         verbose_name_plural = _("Stages")
     
     def __str__(self):
-        work_names = ", ".join([work.name for work in self.work.all()])
-        return f"{self.name} ({_('Works')}: {work_names})"
+        service_names = ", ".join([service.name for service in self.service.all()])
+        return f"{self.name} ({_('Services')}: {service_names})"

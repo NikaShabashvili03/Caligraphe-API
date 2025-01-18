@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny, IsAuthenticated
-from ..models import Stage, Work
+from ..models import Stage, Service
 from ..serializers.stage import StageSerializer
 from django.db.models import F
 from django.utils import timezone
@@ -10,17 +10,17 @@ class StageListView(APIView):
     permission_classes = [AllowAny]
 
     def get(self, request, *args, **kwargs):
-        work_id = request.query_params.get('workId')
+        service_id = request.query_params.get('serviceId')
 
-        if not work_id:
-            return Response({"detail": "workId query parameter is required."}, status=400)
+        if not service_id:
+            return Response({"detail": "serviceId query parameter is required."}, status=400)
 
         try:
-            work = Work.objects.get(id=work_id)
-        except Work.DoesNotExist:
-            return Response({"detail": "Work not found."}, status=404)
+            service = Service.objects.get(id=service_id)
+        except Service.DoesNotExist:
+            return Response({"detail": "Service not found."}, status=404)
 
-        stages = Stage.objects.filter(work=work).order_by(F('is_completed').asc(nulls_last=True))
+        stages = Stage.objects.filter(service=service).order_by(F('is_completed').asc(nulls_last=True))
 
         serialized_stages = StageSerializer(stages, many=True).data
         return Response(serialized_stages)
@@ -33,7 +33,7 @@ class StageCompleteView(APIView):
         supervisor = request.user
 
         try:
-            stage = Stage.objects.get(id=id, work__renovation__supervisor=supervisor)
+            stage = Stage.objects.get(id=id, service__renovation__supervisor=supervisor)
         except Stage.DoesNotExist:
             return Response({"detail": "Stage not found or you does not have access"}, status=404)
 

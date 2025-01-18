@@ -1,6 +1,6 @@
 from django.urls import path, include
 
 urlpatterns = [
-    path('work/', include('default.urls.work')),
+    path('service/', include('default.urls.service')),
     path('stage/', include('default.urls.stage')),
 ]

@@ -24,14 +24,14 @@ class Renovation(models.Model):
 
     @property
     def progress(self):
-        from main.models.work import Work
+        from main.models.service import Service
         
         try:
-            work = self.work
-        except Work.DoesNotExist:
+            service = self.service
+        except Service.DoesNotExist:
             return 0.0
 
-        stages = work.stages.all()
+        stages = service.stages.all()
         completed_stages = sum(1 for stage in stages if stage.is_completed)
         total_stages = stages.count()
 

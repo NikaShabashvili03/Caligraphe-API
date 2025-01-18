@@ -1,9 +1,9 @@
 from rest_framework import serializers
-from ..models import Work
+from ..models import Service
 from .stage import StageSerializer
 
 
-class WorkSerializer(serializers.ModelSerializer):
+class ServiceSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Work 
+        model = Service 
         fields = ['id', 'name']

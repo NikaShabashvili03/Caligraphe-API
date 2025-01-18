@@ -1,14 +1,14 @@
 from rest_framework import serializers
-from ..models import Work
+from ..models import Service
 from .stage import StageSerializer
 
-class WorkSerializer(serializers.ModelSerializer):
+class ServiceSerializer(serializers.ModelSerializer):
     name = serializers.SerializerMethodField()
 
     class Meta:
-        model = Work 
+        model = Service 
         fields = ['id', 'name']
 
     def get_name(self, obj):
-        return obj.work_type.name if obj.work_type else None
+        return obj.service_type.name if obj.service_type else None
     

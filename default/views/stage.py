@@ -2,7 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework import status
-from ..models import Stage, Work
+from ..models import Stage, Service
 from ..serializers.stage import StageSerializer
 from django.shortcuts import get_object_or_404
 
@@ -10,15 +10,15 @@ class StageListView(APIView):
     permission_classes = [AllowAny]
     
     def get(self, request, *args, **kwargs):
-        workId = request.query_params.get('workId', None)
+        serviceId = request.query_params.get('serviceId', None)
 
         try:
-            work = Work.objects.get(id=workId)
-        except Work.DoesNotExist:
-            return Response({"detail": "Work not found"}, status=404)
+            service = Service.objects.get(id=serviceId)
+        except Service.DoesNotExist:
+            return Response({"detail": "Service not found"}, status=404)
         
         try:
-            stages = Stage.objects.filter(work=work)
+            stages = Stage.objects.filter(service=service)
         except Stage.DoesNotExist:
             return Response({"detail": "Stage not found"}, status=404)
         

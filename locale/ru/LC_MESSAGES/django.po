@@ -20,12 +20,12 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: .\default\models\stage.py:9 .\default\models\work.py:8 .\main\admin.py:12
-#: .\main\models\stage.py:14 .\main\models\work.py:14 .\main\models\work.py:49
-msgid "Work"
+#: .\default\models\stage.py:9 .\default\models\service.py:8 .\main\admin.py:12
+#: .\main\models\stage.py:14 .\main\models\service.py:14 .\main\models\service.py:49
+msgid "Service"
 msgstr "Вид ремонта"
 
-#: .\default\models\stage.py:12 .\default\models\work.py:5
+#: .\default\models\stage.py:12 .\default\models\service.py:5
 #: .\main\models\stage.py:17 .\main\models\supervisor.py:7
 msgid "Name"
 msgstr "имя"
@@ -38,12 +38,12 @@ msgstr "Этап"
 msgid "Stages"
 msgstr "Этапы"
 
-#: .\default\models\work.py:9 .\main\models\work.py:50
-msgid "Works"
+#: .\default\models\service.py:9 .\main\models\service.py:50
+msgid "Services"
 msgstr "Виды ремонта"
 
 #: .\main\admin.py:11
-msgid "No Work Assigned"
+msgid "No Service Assigned"
 msgstr "Нет назначенной работы"
 
 #: .\main\admin.py:21
@@ -74,7 +74,7 @@ msgstr "Дата начала"
 msgid "End Date"
 msgstr "Дата окончания"
 
-#: .\main\models\renovation.py:38 .\main\models\work.py:24
+#: .\main\models\renovation.py:38 .\main\models\service.py:24
 msgid "Renovation"
 msgstr "Ремонт"
 

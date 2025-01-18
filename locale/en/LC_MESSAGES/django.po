@@ -18,12 +18,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\default\models\stage.py:9 .\default\models\work.py:8 .\main\admin.py:12
-#: .\main\models\stage.py:14 .\main\models\work.py:14 .\main\models\work.py:49
-msgid "Work"
+#: .\default\models\stage.py:9 .\default\models\service.py:8 .\main\admin.py:12
+#: .\main\models\stage.py:14 .\main\models\service.py:14 .\main\models\service.py:49
+msgid "Service"
 msgstr "Type of Renovation"
 
-#: .\default\models\stage.py:12 .\default\models\work.py:5
+#: .\default\models\stage.py:12 .\default\models\service.py:5
 #: .\main\models\stage.py:17 .\main\models\supervisor.py:7
 msgid "Name"
 msgstr "Name"
@@ -36,13 +36,13 @@ msgstr "Stage"
 msgid "Stages"
 msgstr "Stages"
 
-#: .\default\models\work.py:9 .\main\models\work.py:50
-msgid "Works"
+#: .\default\models\service.py:9 .\main\models\service.py:50
+msgid "Services"
 msgstr "Types of Renovation"
 
 #: .\main\admin.py:11
-msgid "No Work Assigned"
-msgstr "No Work Assigned"
+msgid "No Service Assigned"
+msgstr "No Service Assigned"
 
 #: .\main\admin.py:21
 msgid "Copy Link"
@@ -72,7 +72,7 @@ msgstr "Start Date"
 msgid "End Date"
 msgstr "End Date"
 
-#: .\main\models\renovation.py:38 .\main\models\work.py:24
+#: .\main\models\renovation.py:38 .\main\models\service.py:24
 msgid "Renovation"
 msgstr "Renovation"
 

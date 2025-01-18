@@ -1,5 +1,5 @@
 from django.db import models
-from . import Work
+from . import Service
 from django.utils.translation import gettext_lazy as _
 from ..utils import image_upload, validate_image
 
@@ -7,11 +7,11 @@ def upload_image(instance, filename):
     return image_upload(instance, filename, 'stages/')
 
 class Stage(models.Model):
-    work = models.ForeignKey(
-        Work,
+    service = models.ForeignKey(
+        Service,
         on_delete=models.CASCADE,
         related_name="stages",
-        verbose_name = _("Work")
+        verbose_name = _("Service")
     )
 
     name = models.CharField(max_length=100, verbose_name=_('Name'))
@@ -38,4 +38,4 @@ class StageImage(models.Model):
             validate_image(self.url, 4000, 4000, 4000)
 
     def __str__(self):
-        return f"{self.stage.work.work_type.name} | {self.stage.name}"
+        return f"{self.stage.service.service_type.name} | {self.stage.name}"
