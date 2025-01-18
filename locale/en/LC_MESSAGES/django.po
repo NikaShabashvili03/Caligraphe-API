@@ -21,7 +21,7 @@ msgstr ""
 #: .\default\models\stage.py:9 .\default\models\service.py:8 .\main\admin.py:12
 #: .\main\models\stage.py:14 .\main\models\service.py:14 .\main\models\service.py:49
 msgid "Service"
-msgstr "Type of Renovation"
+msgstr "Service"
 
 #: .\default\models\stage.py:12 .\default\models\service.py:5
 #: .\main\models\stage.py:17 .\main\models\supervisor.py:7
@@ -38,7 +38,7 @@ msgstr "Stages"
 
 #: .\default\models\service.py:9 .\main\models\service.py:50
 msgid "Services"
-msgstr "Types of Renovation"
+msgstr "Services"
 
 #: .\main\admin.py:11
 msgid "No Service Assigned"

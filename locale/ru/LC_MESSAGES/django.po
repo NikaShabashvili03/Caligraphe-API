@@ -23,7 +23,7 @@ msgstr ""
 #: .\default\models\stage.py:9 .\default\models\service.py:8 .\main\admin.py:12
 #: .\main\models\stage.py:14 .\main\models\service.py:14 .\main\models\service.py:49
 msgid "Service"
-msgstr "Вид ремонта"
+msgstr "Услуга"
 
 #: .\default\models\stage.py:12 .\default\models\service.py:5
 #: .\main\models\stage.py:17 .\main\models\supervisor.py:7
@@ -40,7 +40,7 @@ msgstr "Этапы"
 
 #: .\default\models\service.py:9 .\main\models\service.py:50
 msgid "Services"
-msgstr "Виды ремонта"
+msgstr "Услуги"
 
 #: .\main\admin.py:11
 msgid "No Service Assigned"
