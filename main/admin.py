@@ -3,13 +3,38 @@ from .models import Supervisor, Renovation, Stage, Service, StageImage
 import os
 from django.utils.html import format_html
 from django.utils.translation import gettext_lazy as _
+from django.db.models import F
+
+class StageInline(admin.TabularInline): 
+    model = Stage
+    extra = 1
+    fields = ('name', 'is_completed')
+    
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+        return qs.order_by(F('is_completed').asc(nulls_last=True))
+    
+    def has_change_permission(self, request, obj=None):
+        return False
 
 class RenovationAdmin(admin.ModelAdmin):
-    list_display = ('track', 'progress', 'supervisor', 'address', 'start_date', 'end_date', 'service_names', 'copy_link')
+    list_display = (
+        'track', 
+        'progress', 
+        'supervisor', 
+        'address', 
+        'start_date', 
+        'end_date', 
+        'service_link',
+        'copy_link'
+    )
 
-    def service_names(self, obj):
-        return obj.service.service_type.name if obj.service else _("No Service Assigned")
-    service_names.short_description = _('Service')
+    def service_link(self, obj):
+        if obj.service:
+            url = reverse('admin:main_service_change', args=[obj.service.id]) 
+            return format_html('<a href="{}">{}</a>', url, obj.service.service_type.name)
+        return _("No Service Assigned")
+    service_link.short_description = _('Service')
 
     def copy_link(self, obj):
         frontend_url = os.getenv("FRONTEND_URL", "http://localhost:3000") 
@@ -20,12 +45,12 @@ class RenovationAdmin(admin.ModelAdmin):
         )
     copy_link.short_description = _('Copy Link')
 
-    class Media:
-        js = ('admin/js/copy_link.js',)
-
     def progress(self, obj):
         return f"{obj.progress:.2f}%"
     progress.short_description = _('Progress')
+
+    class Media:
+        js = ('admin/js/copy_link.js',)
 
 admin.site.register(Renovation, RenovationAdmin)
 
@@ -40,6 +65,7 @@ admin.site.register(Stage)
 # Service Admin
 class ServiceAdmin(admin.ModelAdmin):
     list_display = ('service_type', 'renovation')
+    inlines = [StageInline]
 
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
         if db_field.name == 'renovation':

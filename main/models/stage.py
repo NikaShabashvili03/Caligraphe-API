@@ -17,12 +17,15 @@ class Stage(models.Model):
     name = models.CharField(max_length=100, verbose_name=_('Name'))
     is_completed = models.DateTimeField(null=True, blank=True, default=None, verbose_name=_('Is Complited'))
     
+    COMPLETED_STATUS = _('Is Completed')
+    NOT_COMPLETED_STATUS = _('Not Completed')
+
     class Meta:
         verbose_name = _("Stage")
         verbose_name_plural = _("Stages")
     
     def __str__(self):
-        return f"{self.name} ({_('Is Complited') if self.is_completed else _('Not Completed')})"
+         return f"{self.name} ({self.COMPLETED_STATUS if self.is_completed else self.NOT_COMPLETED_STATUS})"
     
 
 class StageImage(models.Model):

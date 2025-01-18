@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-17 05:23+0400\n"
+"POT-Creation-Date: 2025-01-18 18:20+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,65 +20,68 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: .\default\models\stage.py:9 .\default\models\service.py:8 .\main\admin.py:12
-#: .\main\models\stage.py:14 .\main\models\service.py:14 .\main\models\service.py:49
-msgid "Service"
-msgstr "Услуга"
-
-#: .\default\models\stage.py:12 .\default\models\service.py:5
+#: .\default\models\service.py:5 .\default\models\stage.py:12
 #: .\main\models\stage.py:17 .\main\models\supervisor.py:7
 msgid "Name"
 msgstr "имя"
 
-#: .\default\models\stage.py:15 .\main\models\stage.py:21
-msgid "Stage"
-msgstr "Этап"
+#: .\default\models\service.py:8 .\default\models\stage.py:9 .\main\admin.py:37
+#: .\main\models\service.py:14 .\main\models\service.py:48
+#: .\main\models\stage.py:14
+msgid "Service"
+msgstr "Услуга"
 
-#: .\default\models\stage.py:16 .\main\models\stage.py:22
-msgid "Stages"
-msgstr "Этапы"
-
-#: .\default\models\service.py:9 .\main\models\service.py:50
+#: .\default\models\service.py:9 .\main\models\service.py:49
 msgid "Services"
 msgstr "Услуги"
 
-#: .\main\admin.py:11
+#: .\default\models\stage.py:15 .\main\models\stage.py:24
+#: .\main\models\stage.py:32
+msgid "Stage"
+msgstr "Этап"
+
+#: .\default\models\stage.py:16 .\main\models\stage.py:25
+msgid "Stages"
+msgstr "Этапы"
+
+#: .\main\admin.py:36
 msgid "No Service Assigned"
 msgstr "Нет назначенной работы"
 
-#: .\main\admin.py:21
+#: .\main\admin.py:46
 msgid "Copy Link"
 msgstr "Скопируйте адрес"
 
-#: .\main\admin.py:28
+#: .\main\admin.py:50
 msgid "Progress"
 msgstr "Прогресс"
 
-#: .\main\models\renovation.py:15
+#: .\main\models\renovation.py:16
 msgid "Track"
 msgstr "Отслеживание"
 
-#: .\main\models\renovation.py:18 .\main\models\supervisor.py:25
+#: .\main\models\renovation.py:19 .\main\models\session.py:6
+#: .\main\models\supervisor.py:25
 msgid "Supervisor"
 msgstr "Прораб"
 
-#: .\main\models\renovation.py:20
+#: .\main\models\renovation.py:21
 msgid "Address"
 msgstr "Адрес"
 
-#: .\main\models\renovation.py:21
+#: .\main\models\renovation.py:22
 msgid "Start Date"
 msgstr "Дата начала"
 
-#: .\main\models\renovation.py:22
+#: .\main\models\renovation.py:23
 msgid "End Date"
 msgstr "Дата окончания"
 
-#: .\main\models\renovation.py:38 .\main\models\service.py:24
+#: .\main\models\renovation.py:41 .\main\models\service.py:23
 msgid "Renovation"
 msgstr "Ремонт"
 
-#: .\main\models\renovation.py:39
+#: .\main\models\renovation.py:42
 msgid "Renovations"
 msgstr "Ремонты"
 
@@ -94,15 +97,23 @@ msgstr "Сессии"
 msgid "Is Complited"
 msgstr "Завершено"
 
-#: .\main\models\stage.py:30
+#: .\main\models\stage.py:20
+msgid "Is Completed"
+msgstr "Завершено"
+
+#: .\main\models\stage.py:21
+msgid "Not Completed"
+msgstr "Не Завершено"
+
+#: .\main\models\stage.py:33
 msgid "Url"
 msgstr ""
 
-#: .\main\models\stage.py:33
+#: .\main\models\stage.py:36
 msgid "Stage Image"
 msgstr "Изображения Этапа"
 
-#: .\main\models\stage.py:34
+#: .\main\models\stage.py:37
 msgid "Stage Images"
 msgstr "Изображения Этапов"
 
@@ -126,17 +137,14 @@ msgstr "Создано в"
 msgid "Supervisors"
 msgstr "Прорабы"
 
-#: .\project\settings.py:46
+#: .\project\settings.py:43
 msgid "English"
 msgstr ""
 
-#: .\project\settings.py:47
+#: .\project\settings.py:44
 msgid "Georgian"
 msgstr ""
 
-#: .\project\settings.py:48
+#: .\project\settings.py:45
 msgid "Russian"
 msgstr ""
-
-#~ msgid "Not Completed"
-#~ msgstr "Не Завершено"
