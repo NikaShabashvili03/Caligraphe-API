@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-18 18:20+0400\n"
+"POT-Creation-Date: 2025-01-20 14:23+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,12 +18,70 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
-#: .\default\models\service.py:5 .\default\models\stage.py:12
-#: .\main\models\stage.py:17 .\main\models\supervisor.py:7
+#: .\authentication\models\customer.py:7
+#: .\authentication\models\supervisor.py:7 .\default\models\service.py:5
+#: .\default\models\stage.py:12 .\main\models\stage.py:17
 msgid "Name"
 msgstr "სახელი"
 
-#: .\default\models\service.py:8 .\default\models\stage.py:9 .\main\admin.py:37
+#: .\authentication\models\customer.py:8
+#: .\authentication\models\supervisor.py:8
+msgid "Last Name"
+msgstr "გვარი"
+
+#: .\authentication\models\customer.py:9
+#: .\authentication\models\supervisor.py:9
+msgid "Email"
+msgstr "მაილი"
+
+#: .\authentication\models\customer.py:11
+#: .\authentication\models\supervisor.py:11
+msgid "Last Login"
+msgstr "ბოლო შესვლა"
+
+#: .\authentication\models\customer.py:12
+#: .\authentication\models\supervisor.py:12
+msgid "Created At"
+msgstr "შექმნის თარიღი"
+
+#: .\authentication\models\customer.py:25 .\main\models\renovation.py:20
+msgid "Customer"
+msgstr "მომხმარებელი"
+
+#: .\authentication\models\customer.py:26
+msgid "Customers"
+msgstr "მომხმარებლები"
+
+#: .\authentication\models\session.py:8
+msgid "User"
+msgstr "მომხმარებელი"
+
+#: .\authentication\models\session.py:9
+#: .\authentication\models\supervisor.py:25 .\main\models\renovation.py:19
+msgid "Supervisor"
+msgstr "ზედამხედველი"
+
+#: .\authentication\models\session.py:15
+msgid "Session"
+msgstr "სესია"
+
+#: .\authentication\models\session.py:16
+msgid "Sessions"
+msgstr "სესიები"
+
+#: .\authentication\models\session.py:20
+msgid "Either a customer or a supervisor must be set."
+msgstr "ან დამკვეთი ან ზედამხედველი უნდა დაინიშნოს."
+
+#: .\authentication\models\session.py:22
+msgid "A session can only have a customer or a supervisor, not both."
+msgstr "სესიას შეიძლება ჰყავდეს მხოლოდ კლიენტი ან ხელმძღვანელი და არა ორივე."
+
+#: .\authentication\models\supervisor.py:26
+msgid "Supervisors"
+msgstr "ზედამხედველები"
+
+#: .\default\models\service.py:8 .\default\models\stage.py:9 .\main\admin.py:38
 #: .\main\models\service.py:14 .\main\models\service.py:48
 #: .\main\models\stage.py:14
 msgid "Service"
@@ -42,15 +100,15 @@ msgstr "ეტაპი"
 msgid "Stages"
 msgstr "ეტაპები"
 
-#: .\main\admin.py:36
+#: .\main\admin.py:37
 msgid "No Service Assigned"
 msgstr "სამუშაო არ არის დანიშნული"
 
-#: .\main\admin.py:46
+#: .\main\admin.py:47
 msgid "Copy Link"
 msgstr "მისამართის დაკოპირება"
 
-#: .\main\admin.py:50
+#: .\main\admin.py:51
 msgid "Progress"
 msgstr "პროგრესი"
 
@@ -58,38 +116,25 @@ msgstr "პროგრესი"
 msgid "Track"
 msgstr "მიკვლევა"
 
-#: .\main\models\renovation.py:19 .\main\models\session.py:6
-#: .\main\models\supervisor.py:25
-msgid "Supervisor"
-msgstr "ზედამხედველი"
-
-#: .\main\models\renovation.py:21
+#: .\main\models\renovation.py:22
 msgid "Address"
 msgstr "მისამართი"
 
-#: .\main\models\renovation.py:22
+#: .\main\models\renovation.py:23
 msgid "Start Date"
 msgstr "დაწყების თარიღი"
 
-#: .\main\models\renovation.py:23
+#: .\main\models\renovation.py:24
 msgid "End Date"
 msgstr "დასრულების თარიღი"
 
-#: .\main\models\renovation.py:41 .\main\models\service.py:23
+#: .\main\models\renovation.py:42 .\main\models\service.py:23
 msgid "Renovation"
 msgstr "რემონტი"
 
-#: .\main\models\renovation.py:42
+#: .\main\models\renovation.py:43
 msgid "Renovations"
 msgstr "რემონტები"
-
-#: .\main\models\session.py:12
-msgid "Session"
-msgstr "სესია"
-
-#: .\main\models\session.py:13
-msgid "Sessions"
-msgstr "სესიები"
 
 #: .\main\models\stage.py:18
 msgid "Is Complited"
@@ -115,26 +160,6 @@ msgstr "ეტაპის სურათი"
 msgid "Stage Images"
 msgstr "ეტაპების სურათები"
 
-#: .\main\models\supervisor.py:8
-msgid "Last Name"
-msgstr "გვარი"
-
-#: .\main\models\supervisor.py:9
-msgid "Email"
-msgstr "მაილი"
-
-#: .\main\models\supervisor.py:11
-msgid "Last Login"
-msgstr "ბოლო შესვლა"
-
-#: .\main\models\supervisor.py:12
-msgid "Created At"
-msgstr "შექმნის თარიღი"
-
-#: .\main\models\supervisor.py:26
-msgid "Supervisors"
-msgstr "ზედამხედველები"
-
 #: .\project\settings.py:43
 msgid "English"
 msgstr ""
@@ -146,3 +171,6 @@ msgstr ""
 #: .\project\settings.py:45
 msgid "Russian"
 msgstr ""
+
+#~ msgid "Users"
+#~ msgstr "მომხმარებლები"

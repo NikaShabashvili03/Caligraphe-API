@@ -1,6 +1,6 @@
 from rest_framework import generics, status
 from rest_framework.response import Response
-from ..serializers.supervisor import LoginSerializer, ProfileSerializer
+from ..serializers.supervisor import SupervisorLoginSerializer, SupervisorProfileSerializer
 from ..models import Session
 from django.middleware.csrf import get_token
 import uuid
@@ -8,10 +8,10 @@ from rest_framework import status
 from datetime import timedelta
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from django.utils.timezone import now
+from authentication.permissions import IsSupervisor
 
-
-class LoginView(generics.GenericAPIView):
-    serializer_class = LoginSerializer
+class SupervisorLoginView(generics.GenericAPIView):
+    serializer_class = SupervisorLoginSerializer
     permission_classes = [AllowAny]
 
     def post(self, request, *args, **kwargs):
@@ -33,7 +33,7 @@ class LoginView(generics.GenericAPIView):
             expires_at=expires_at,
         )
         
-        supervisor_data = ProfileSerializer(supervisor).data
+        supervisor_data = SupervisorProfileSerializer(supervisor).data
         
         response = Response(supervisor_data, status=status.HTTP_200_OK)
         response.set_cookie(
@@ -44,11 +44,11 @@ class LoginView(generics.GenericAPIView):
         response['X-CSRFToken'] = csrf_token
         return response
 
-class LogoutView(generics.GenericAPIView):
-    permission_classes = [IsAuthenticated]
+class SupervisorLogoutView(generics.GenericAPIView):
+    permission_classes = [IsAuthenticated, IsSupervisor]
 
     def post(self, request, *args, **kwargs):
-        supervisor = request.user
+        supervisor = request.user.supervisor
         sessions = Session.objects.filter(supervisor_id=supervisor)
         response = Response({'details': 'Logged out successfully'}, status=status.HTTP_200_OK)
         if sessions:
@@ -59,12 +59,12 @@ class LogoutView(generics.GenericAPIView):
             
         return response
 
-class ProfileView(generics.RetrieveAPIView):
-    permission_classes = [IsAuthenticated]
-    serializer_class = ProfileSerializer
+class SupervisorProfileView(generics.RetrieveAPIView):
+    permission_classes = [IsAuthenticated, IsSupervisor]
+    serializer_class = SupervisorProfileSerializer
     
     def get(self, request, *args, **kwargs):
-        supervisor = request.user
-        serializer = ProfileSerializer(supervisor)
+        supervisor = request.user.supervisor
+        serializer = SupervisorProfileSerializer(supervisor)
 
         return Response(serializer.data)

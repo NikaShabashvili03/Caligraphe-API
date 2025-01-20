@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Supervisor, Renovation, Stage, Service, StageImage
+from .models import Renovation, Stage, Service, StageImage
 import os
 from django.utils.html import format_html
 from django.utils.translation import gettext_lazy as _
@@ -54,9 +54,6 @@ class RenovationAdmin(admin.ModelAdmin):
         js = ('admin/js/copy_link.js',)
 
 admin.site.register(Renovation, RenovationAdmin)
-
-# Supervisor Admin
-admin.site.register(Supervisor)
 
 
 # Stage Admin

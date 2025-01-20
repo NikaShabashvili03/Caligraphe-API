@@ -81,6 +81,7 @@ CHANNEL_LAYERS = {
 INSTALLED_APPS = [
     'main',
     'default',
+    'authentication',
     'channels',
     'modeltranslation',
     'django.contrib.admin',
@@ -185,10 +186,9 @@ DATABASES = {
         },
     }
 }
-
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'main.middleware.CustomSessionAuthentication',
+        'authentication.middleware.CustomSessionAuthentication',
         'rest_framework.authentication.SessionAuthentication',
     ],
 }

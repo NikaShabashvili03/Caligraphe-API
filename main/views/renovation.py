@@ -4,17 +4,22 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from ..models import Renovation
 from ..serializers.renovation import RenovationSerializer
 from django.shortcuts import get_object_or_404
+from django.db.models import Q
 
 class RenovationListView(APIView):
     permission_classes = [IsAuthenticated]
     
     def get(self, request, *args, **kwargs):
-        supervisor = request.user
+        supervisor = request.user.supervisor
+        customer = request.user.customer
 
         try:
-            renovation = Renovation.objects.filter(supervisor=supervisor)
+            renovation = Renovation.objects.filter(
+                Q(supervisor=supervisor) | Q(customer=customer)
+            )
         except Renovation.DoesNotExist:
             return Response({"detail": "Renovation not found"}, status=404)
+       
         
         serialized_Renovations = RenovationSerializer(renovation, many=True).data
         return Response(serialized_Renovations)

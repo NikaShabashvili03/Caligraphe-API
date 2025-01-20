@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from ..models import Supervisor
     
-class LoginSerializer(serializers.Serializer):
+class SupervisorLoginSerializer(serializers.Serializer):
     email = serializers.EmailField()
     password = serializers.CharField(write_only=True)
     
@@ -15,7 +15,7 @@ class LoginSerializer(serializers.Serializer):
         except Supervisor.DoesNotExist:
             raise serializers.ValidationError("Supervisor does not exist")
         
-class ProfileSerializer(serializers.ModelSerializer):
+class SupervisorProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Supervisor 
-        fields = ['id','firstname', 'lastname', 'email']
+        fields = ['id', 'firstname', 'lastname', 'email']

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-18 18:20+0400\n"
+"POT-Creation-Date: 2025-01-20 14:23+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,12 +18,70 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\default\models\service.py:5 .\default\models\stage.py:12
-#: .\main\models\stage.py:17 .\main\models\supervisor.py:7
+#: .\authentication\models\customer.py:7
+#: .\authentication\models\supervisor.py:7 .\default\models\service.py:5
+#: .\default\models\stage.py:12 .\main\models\stage.py:17
 msgid "Name"
 msgstr "Name"
 
-#: .\default\models\service.py:8 .\default\models\stage.py:9 .\main\admin.py:37
+#: .\authentication\models\customer.py:8
+#: .\authentication\models\supervisor.py:8
+msgid "Last Name"
+msgstr "Last Name"
+
+#: .\authentication\models\customer.py:9
+#: .\authentication\models\supervisor.py:9
+msgid "Email"
+msgstr "Email"
+
+#: .\authentication\models\customer.py:11
+#: .\authentication\models\supervisor.py:11
+msgid "Last Login"
+msgstr "Last Login"
+
+#: .\authentication\models\customer.py:12
+#: .\authentication\models\supervisor.py:12
+msgid "Created At"
+msgstr "Created at"
+
+#: .\authentication\models\customer.py:25 .\main\models\renovation.py:20
+msgid "Customer"
+msgstr "Customer"
+
+#: .\authentication\models\customer.py:26
+msgid "Customers"
+msgstr "Customers"
+
+#: .\authentication\models\session.py:8
+msgid "User"
+msgstr "User"
+
+#: .\authentication\models\session.py:9
+#: .\authentication\models\supervisor.py:25 .\main\models\renovation.py:19
+msgid "Supervisor"
+msgstr "Supervisor"
+
+#: .\authentication\models\session.py:15
+msgid "Session"
+msgstr "Session"
+
+#: .\authentication\models\session.py:16
+msgid "Sessions"
+msgstr "Sessions"
+
+#: .\authentication\models\session.py:20
+msgid "Either a customer or a supervisor must be set."
+msgstr "Either a customer or a supervisor must be set."
+
+#: .\authentication\models\session.py:22
+msgid "A session can only have a customer or a supervisor, not both."
+msgstr "A session can only have a customer or a supervisor, not both."
+
+#: .\authentication\models\supervisor.py:26
+msgid "Supervisors"
+msgstr "Supervisors"
+
+#: .\default\models\service.py:8 .\default\models\stage.py:9 .\main\admin.py:38
 #: .\main\models\service.py:14 .\main\models\service.py:48
 #: .\main\models\stage.py:14
 msgid "Service"
@@ -42,15 +100,15 @@ msgstr "Stage"
 msgid "Stages"
 msgstr "Stages"
 
-#: .\main\admin.py:36
+#: .\main\admin.py:37
 msgid "No Service Assigned"
 msgstr "No Service Assigned"
 
-#: .\main\admin.py:46
+#: .\main\admin.py:47
 msgid "Copy Link"
 msgstr "Copy the address"
 
-#: .\main\admin.py:50
+#: .\main\admin.py:51
 msgid "Progress"
 msgstr "Progress"
 
@@ -58,38 +116,25 @@ msgstr "Progress"
 msgid "Track"
 msgstr "Tracking"
 
-#: .\main\models\renovation.py:19 .\main\models\session.py:6
-#: .\main\models\supervisor.py:25
-msgid "Supervisor"
-msgstr "Supervisor"
-
-#: .\main\models\renovation.py:21
+#: .\main\models\renovation.py:22
 msgid "Address"
 msgstr "Address"
 
-#: .\main\models\renovation.py:22
+#: .\main\models\renovation.py:23
 msgid "Start Date"
 msgstr "Start Date"
 
-#: .\main\models\renovation.py:23
+#: .\main\models\renovation.py:24
 msgid "End Date"
 msgstr "End Date"
 
-#: .\main\models\renovation.py:41 .\main\models\service.py:23
+#: .\main\models\renovation.py:42 .\main\models\service.py:23
 msgid "Renovation"
 msgstr "Renovation"
 
-#: .\main\models\renovation.py:42
+#: .\main\models\renovation.py:43
 msgid "Renovations"
 msgstr "Renovations"
-
-#: .\main\models\session.py:12
-msgid "Session"
-msgstr "Session"
-
-#: .\main\models\session.py:13
-msgid "Sessions"
-msgstr "Sessions"
 
 #: .\main\models\stage.py:18
 msgid "Is Complited"
@@ -115,26 +160,6 @@ msgstr "Stage Image"
 msgid "Stage Images"
 msgstr "Stage Images"
 
-#: .\main\models\supervisor.py:8
-msgid "Last Name"
-msgstr "Last Name"
-
-#: .\main\models\supervisor.py:9
-msgid "Email"
-msgstr "Email"
-
-#: .\main\models\supervisor.py:11
-msgid "Last Login"
-msgstr "Last Login"
-
-#: .\main\models\supervisor.py:12
-msgid "Created At"
-msgstr "Created at"
-
-#: .\main\models\supervisor.py:26
-msgid "Supervisors"
-msgstr "Supervisors"
-
 #: .\project\settings.py:43
 msgid "English"
 msgstr ""
@@ -146,3 +171,6 @@ msgstr ""
 #: .\project\settings.py:45
 msgid "Russian"
 msgstr ""
+
+#~ msgid "Users"
+#~ msgstr "Users"

@@ -1,6 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny, IsAuthenticated
+from authentication.permissions import IsSupervisor
 from ..models import Stage, Service
 from ..serializers.stage import StageSerializer
 from django.db.models import F
@@ -27,10 +28,10 @@ class StageListView(APIView):
     
 
 class StageCompleteView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsSupervisor]
 
     def patch(self, request, id, *args, **kwargs):
-        supervisor = request.user
+        supervisor = request.user.supervisor
 
         try:
             stage = Stage.objects.get(id=id, service__renovation__supervisor=supervisor)

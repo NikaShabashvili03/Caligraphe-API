@@ -1,9 +1,9 @@
 import random
 import string
 from django.db import models
-from . import Supervisor
+from authentication.models.supervisor import Supervisor
+from authentication.models.customer import Customer
 from django.utils.translation import gettext_lazy as _
-
 
 def generate_random_string(length=16):
     return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
@@ -17,6 +17,7 @@ class Renovation(models.Model):
     )
     
     supervisor = models.ForeignKey(Supervisor, on_delete=models.CASCADE, verbose_name=_('Supervisor'))
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, verbose_name=_('Customer'))
 
     address = models.CharField(max_length=255, verbose_name=_('Address'))
     start_date = models.DateField(verbose_name=_('Start Date'))
