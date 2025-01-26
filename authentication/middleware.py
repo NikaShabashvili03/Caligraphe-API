@@ -15,6 +15,7 @@ class CustomUser:
 class CustomSessionAuthentication(BaseAuthentication):
     def authenticate(self, request):
         session_token = request.COOKIES.get('sessionId')
+        print(request)
         if not session_token:
             return None
 

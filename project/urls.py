@@ -8,7 +8,7 @@ urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
     path('api/v1/', include('main.urls')),
     path('api/v2/', include('default.urls')),
-    path('api/v3/', include('authentication.urls'))
+    path('api/v3/', include('authentication.urls')),
 )
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

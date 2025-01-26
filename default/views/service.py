@@ -13,7 +13,7 @@ class ServiceListView(APIView):
         try:
             services = Service.objects.all()
         except Service.DoesNotExist:
-            return Response({"detail": "Service not found"}, status=404)
+            return Response({"details": "Service not found"}, status=404)
         
         serialized_services = ServiceSerializer(services, many=True).data
         return Response(serialized_services)

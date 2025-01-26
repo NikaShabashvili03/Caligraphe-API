@@ -22,7 +22,7 @@ class Session(models.Model):
                raise ValidationError(_("A session can only have a customer or a supervisor, not both."))
           
     def is_valid(self):
-         return f"{self.customer.email | self.supervisor.email} - {self.session_token}"
+         return f"{self.session_token}"
     
     def __str__(self):
-         return f"{self.customer.firstname | self.supervisor.email} | {self.created_at} / {self.expires_at}"
+         return f"{self.created_at} / {self.expires_at}"

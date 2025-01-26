@@ -15,12 +15,12 @@ class StageListView(APIView):
         try:
             service = Service.objects.get(id=serviceId)
         except Service.DoesNotExist:
-            return Response({"detail": "Service not found"}, status=404)
+            return Response({"details": "Service not found"}, status=404)
         
         try:
             stages = Stage.objects.filter(service=service)
         except Stage.DoesNotExist:
-            return Response({"detail": "Stage not found"}, status=404)
+            return Response({"details": "Stage not found"}, status=404)
         
         serialized_stages = StageSerializer(stages, many=True).data
         return Response(serialized_stages)

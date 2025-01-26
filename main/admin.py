@@ -5,7 +5,15 @@ from django.utils.html import format_html
 from django.utils.translation import gettext_lazy as _
 from django.db.models import F
 from django.urls import reverse
+from django.apps import apps
+from django.utils.translation import gettext_lazy as _
 
+def update_app_label_for_admin():
+    main_app = apps.get_app_config('main')
+
+    main_app.verbose_name = _("Main")
+
+update_app_label_for_admin()
 class StageInline(admin.TabularInline): 
     model = Stage
     extra = 1

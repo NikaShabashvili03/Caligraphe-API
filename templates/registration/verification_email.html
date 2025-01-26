@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification</title>
+</head>
+<body>
+    <p>Hi {{ user.firstname }} {{ user.lastname }},</p>
+    <p>Thank you for registering. To verify your email address, please click the link below:</p>
+    <p><a href="{{ verification_url }}">Verify my email address</a></p>
+</body>
+</html>
