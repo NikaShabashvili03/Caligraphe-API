@@ -157,7 +157,10 @@ class GoogleLogin(APIView):
             customer_data = CustomerProfileSerializer(user).data
         
             response = Response(customer_data, status=status.HTTP_200_OK)
-            response.set_cookie('sessionId', session.session_token, expires=expires_at)
+            response.set_cookie(
+                'sessionId', session.session_token, expires=expires_at, 
+                samesite='None', secure=True
+            )
 
             return response
 
