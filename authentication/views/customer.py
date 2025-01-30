@@ -47,7 +47,8 @@ class CustomerRegisterView(generics.GenericAPIView):
 
         response = Response(customer_data, status=status.HTTP_201_CREATED)
         response.set_cookie(
-            'sessionId', session.session_token, expires=expires_at
+            'sessionId', session.session_token, expires=expires_at, 
+            samesite='None', secure=True
         )
         csrf_token = get_token(request)
         response['X-CSRFToken'] = csrf_token
@@ -79,12 +80,12 @@ class CustomerLoginView(generics.GenericAPIView):
         
         customer_data = CustomerProfileSerializer(customer).data
         
-        response = Response(customer_data, status=status.HTTP_200_OK)
+        response = Response(customer_data, status=status.HTTP_201_CREATED)
         response.set_cookie(
-            'sessionId',
-            session.session_token,
-            expires=expires_at, 
+            'sessionId', session.session_token, expires=expires_at, 
+            samesite='None', secure=True
         )
+        csrf_token = get_token(request)
         response['X-CSRFToken'] = csrf_token
         return response
 
