@@ -18,7 +18,7 @@ class RenovationListView(APIView):
                 Q(supervisor=supervisor) | Q(customer=customer)
             )
         except Renovation.DoesNotExist:
-            return Response({"detail": "Renovation not found"}, status=404)
+            return Response({"details": "Renovation not found"}, status=404)
        
         
         serialized_Renovations = RenovationSerializer(renovation, many=True).data

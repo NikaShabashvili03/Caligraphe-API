@@ -14,12 +14,12 @@ class StageListView(APIView):
         service_id = request.query_params.get('serviceId')
 
         if not service_id:
-            return Response({"detail": "serviceId query parameter is required."}, status=400)
+            return Response({"details": "serviceId query parameter is required."}, status=400)
 
         try:
             service = Service.objects.get(id=service_id)
         except Service.DoesNotExist:
-            return Response({"detail": "Service not found."}, status=404)
+            return Response({"details": "Service not found."}, status=404)
 
         stages = Stage.objects.filter(service=service).order_by(F('is_completed').asc(nulls_last=True))
 
@@ -36,7 +36,7 @@ class StageCompleteView(APIView):
         try:
             stage = Stage.objects.get(id=id, service__renovation__supervisor=supervisor)
         except Stage.DoesNotExist:
-            return Response({"detail": "Stage not found or you does not have access"}, status=404)
+            return Response({"details": "Stage not found or you does not have access"}, status=404)
 
         if stage.is_completed == None:
             stage.is_completed = timezone.now()

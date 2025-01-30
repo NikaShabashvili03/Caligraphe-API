@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-20 14:23+0400\n"
+"POT-Creation-Date: 2025-01-21 09:12+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\authentication\admin.py:11
+msgid "Authentication"
+msgstr "Authentication"
 
 #: .\authentication\models\customer.py:7
 #: .\authentication\models\supervisor.py:7 .\default\models\service.py:5
@@ -81,7 +85,11 @@ msgstr "A session can only have a customer or a supervisor, not both."
 msgid "Supervisors"
 msgstr "Supervisors"
 
-#: .\default\models\service.py:8 .\default\models\stage.py:9 .\main\admin.py:38
+#: .\default\admin.py:9
+msgid "Default"
+msgstr "Content"
+
+#: .\default\models\service.py:8 .\default\models\stage.py:9 .\main\admin.py:46
 #: .\main\models\service.py:14 .\main\models\service.py:48
 #: .\main\models\stage.py:14
 msgid "Service"
@@ -100,15 +108,19 @@ msgstr "Stage"
 msgid "Stages"
 msgstr "Stages"
 
-#: .\main\admin.py:37
+#: .\main\admin.py:14
+msgid "Main"
+msgstr "Main"
+
+#: .\main\admin.py:45
 msgid "No Service Assigned"
 msgstr "No Service Assigned"
 
-#: .\main\admin.py:47
+#: .\main\admin.py:55
 msgid "Copy Link"
 msgstr "Copy the address"
 
-#: .\main\admin.py:51
+#: .\main\admin.py:59
 msgid "Progress"
 msgstr "Progress"
 

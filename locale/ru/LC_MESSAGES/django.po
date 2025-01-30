@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-20 14:23+0400\n"
+"POT-Creation-Date: 2025-01-21 09:12+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,10 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\authentication\admin.py:11
+msgid "Authentication"
+msgstr "аутентификация"
 
 #: .\authentication\models\customer.py:7
 #: .\authentication\models\supervisor.py:7 .\default\models\service.py:5
@@ -83,7 +87,11 @@ msgstr "В сессии может участвовать только клие�
 msgid "Supervisors"
 msgstr "Прорабы"
 
-#: .\default\models\service.py:8 .\default\models\stage.py:9 .\main\admin.py:38
+#: .\default\admin.py:9
+msgid "Default"
+msgstr "Контент"
+
+#: .\default\models\service.py:8 .\default\models\stage.py:9 .\main\admin.py:46
 #: .\main\models\service.py:14 .\main\models\service.py:48
 #: .\main\models\stage.py:14
 msgid "Service"
@@ -102,15 +110,19 @@ msgstr "Этап"
 msgid "Stages"
 msgstr "Этапы"
 
-#: .\main\admin.py:37
+#: .\main\admin.py:14
+msgid "Main"
+msgstr "Основной"
+
+#: .\main\admin.py:45
 msgid "No Service Assigned"
 msgstr "Нет назначенной работы"
 
-#: .\main\admin.py:47
+#: .\main\admin.py:55
 msgid "Copy Link"
 msgstr "Скопируйте адрес"
 
-#: .\main\admin.py:51
+#: .\main\admin.py:59
 msgid "Progress"
 msgstr "Прогресс"
 

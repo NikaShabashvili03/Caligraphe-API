@@ -79,6 +79,13 @@ CHANNEL_LAYERS = {
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.sites',
+    'dj_rest_auth',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'dj_rest_auth.registration',
     'main',
     'default',
     'authentication',
@@ -91,8 +98,47 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sessions',
     'rest_framework',
-    'corsheaders'
+    'corsheaders',
 ]
+
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = '850f242d7d5cf2'
+EMAIL_HOST_PASSWORD = 'a98cf5743bfa6b'
+DEFAULT_FROM_EMAIL = 'sandbox.smtp.mailtrap.io'
+
+SITE_ID = 1
+
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_VERIFICATION = 'optional'
+
+REST_USE_JWT = False
+
+REST_AUTH_TOKEN_MODEL = None
+TOKEN_MODEL = None
+
+LOGIN_REDIRECT_URL = 'http://localhost:3000'
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': ['openid', 'profile', 'email'],  # Required scopes for Google login
+        'AUTH_PARAMS': {'access_type': 'online'},  # Optional: Google's access_type
+        'OAUTH_PKCE_ENABLED': True,  # Enable PKCE (Proof Key for Code Exchange) for better security
+        'APP': {
+            'client_id': '264255295494-vpu5hf44fk9h11765l13p2oppt12evoq.apps.googleusercontent.com',  # Your Google client ID
+            'secret': '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',  # Your Google client secret
+            'key': '',  # Optional: You can leave this empty or add if needed
+        }
+    }
+}
+
+GOOGLE_CLIENT_ID = '264255295494-vpu5hf44fk9h11765l13p2oppt12evoq.apps.googleusercontent.com'
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -111,6 +157,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -118,7 +165,9 @@ ROOT_URLCONF = 'project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, "templates")
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -144,8 +193,8 @@ CORS_ALLOW_HEADERS = list(default_headers) + [
 CORS_ALLOW_METHODS = ['*'] 
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',
-    'http://127.0.0.1:3000',
+    'http://localhost:5173',
+    'http://127.0.0.1:5173',
     'https://caligraphe-api.onrender.com'
 ]
 
@@ -156,7 +205,7 @@ ALLOWED_HOSTS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'http://localhost:8000', 
+    'http://localhost:8000',
     'https://caligraphe-api.onrender.com'
 ]
 
@@ -181,11 +230,12 @@ DATABASES = {
         'OPTIONS': {
             'charset': 'utf8mb4',
             'ssl': {
-                'ca': r'ca.pem',
-            }
+                'ca': r'ca.pem',  # Path to the certificate file
+            },
         },
     }
 }
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'authentication.middleware.CustomSessionAuthentication',
@@ -220,7 +270,7 @@ APPEND_SLASH = False
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
 TIME_ZONE = os.getenv('DJANGO_TIME_ZONE', 'UTC')
-
+BACKEND_URL = os.getenv('BACKEND_URL', 'http://localhost:8000')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
