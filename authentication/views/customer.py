@@ -112,7 +112,7 @@ class CustomerProfileView(generics.RetrieveAPIView):
         customer = request.user.customer
 
         if not customer.email_verified:
-            raise PermissionDenied("Your email address is not verified. Please verify your email before accessing the profile.")
+            return Response({"email_verified": False, "email": customer.email})
         
         serializer = CustomerProfileSerializer(customer)
 

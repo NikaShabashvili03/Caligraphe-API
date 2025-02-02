@@ -20,8 +20,6 @@ class ServiceView(APIView):
             id=id
         )
         
-        print(service)
         serialized_service = ServiceSerializer(service).data
 
-        print(serialized_service)
         return Response(serialized_service)
