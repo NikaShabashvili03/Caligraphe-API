@@ -111,9 +111,6 @@ class CustomerProfileView(generics.RetrieveAPIView):
     def get(self, request, *args, **kwargs):
         customer = request.user.customer
 
-        if not customer.email_verified:
-            return Response({"email_verified": False, "email": customer.email})
-        
         serializer = CustomerProfileSerializer(customer)
 
         return Response(serializer.data)
