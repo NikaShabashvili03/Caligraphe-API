@@ -213,7 +213,7 @@ class CustomerSendVerificationEmail(APIView):
 
             token = jwt.encode(payload, settings.SECRET_KEY, algorithm="HS256")
 
-            verification_url = f"{settings.BACKEND_URL}/en/api/v3/customer/verify-email/{token}"
+            verification_url = f"{settings.FrontEn}/verify-email?token={token}"
 
             email_subject = "Verify your email address"
             email_body = render_to_string('registration/verification_email.html', {
@@ -249,7 +249,7 @@ class CustomerSendResetPassword(APIView):
 
             token = jwt.encode(payload, settings.SECRET_KEY, algorithm="HS256")
 
-            reset_url = f"{settings.BACKEND_URL}/en/api/v3/customer/reset-password/{token}"
+            reset_url = f"{settings.BACKEND_URL}/api/v3/customer/reset-password/{token}"
 
             email_subject = "Reset password"
             email_body = render_to_string('registration/reset_password.html', {

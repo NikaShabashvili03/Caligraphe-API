@@ -270,7 +270,8 @@ APPEND_SLASH = False
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
 TIME_ZONE = os.getenv('DJANGO_TIME_ZONE', 'UTC')
-BACKEND_URL = os.getenv('BACKEND_URL', 'http://localhost:8000')
+BACKEND_URL = os.getenv('BACKEND_URL', 'http://localhost:8000/en')
+ACKEND_URL = os.getenv('FRONTEND_URL', 'http://localhost:3000/en')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
