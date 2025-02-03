@@ -213,7 +213,7 @@ class CustomerSendVerificationEmail(APIView):
 
             token = jwt.encode(payload, settings.SECRET_KEY, algorithm="HS256")
 
-            verification_url = f"{settings.FrontEn}/verify-email?token={token}"
+            verification_url = f"{settings.FRONTEND}/verify-email?token={token}"
 
             email_subject = "Verify your email address"
             email_body = render_to_string('registration/verification_email.html', {
