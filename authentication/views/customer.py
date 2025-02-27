@@ -179,7 +179,7 @@ class CustomerVerificationEmail(APIView):
 
             customer = Customer.objects.filter(pk=user_id).first()
             if not customer:
-                return Response({"error": "Customer does not exist."}, status=status.HTTP_404_NOT_FOUND)
+                return Response({"details": "Customer does not exist."}, status=status.HTTP_404_NOT_FOUND)
 
             if customer.email_verified:
                 return Response({"details": "Email is already verified."}, status=status.HTTP_200_OK)
@@ -190,11 +190,11 @@ class CustomerVerificationEmail(APIView):
             return Response({"details": "Email successfully verified."}, status=status.HTTP_200_OK)
 
         except jwt.ExpiredSignatureError:
-            return Response({"error": "The verification link has expired."}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"details": "The verification link has expired."}, status=status.HTTP_400_BAD_REQUEST)
         except jwt.DecodeError:
-            return Response({"error": "Invalid token."}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"details": "Invalid token."}, status=status.HTTP_400_BAD_REQUEST)
         except Exception as e:
-            return Response({"error": f"An error occurred: {str(e)}"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({"details": f"An error occurred: {str(e)}"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
 class CustomerSendVerificationEmail(APIView):
     permission_classes = [AllowAny]

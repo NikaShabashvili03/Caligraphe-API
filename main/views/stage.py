@@ -8,7 +8,7 @@ from django.db.models import F
 from django.utils import timezone
 
 class StageListView(APIView):
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
 
     def get(self, request, *args, **kwargs):
         service_id = request.query_params.get('serviceId')
