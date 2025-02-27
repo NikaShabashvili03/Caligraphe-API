@@ -52,9 +52,9 @@ class CustomerRegisterView(generics.GenericAPIView):
         response = Response(customer_data, status=status.HTTP_201_CREATED)
         response.set_cookie(
             'sessionId', session.session_token, expires=expires_at,
-            httponly=False, 
-            secure=False, 
-            samesite=None
+            httponly=True,  # Change to True if you don't need JavaScript access
+            secure=False,  # Use False in local development
+            samesite='Lax'  # Adjust as needed
         )
         csrf_token = get_token(request)
         response['X-CSRFToken'] = csrf_token
@@ -95,9 +95,9 @@ class CustomerLoginView(generics.GenericAPIView):
         response = Response(customer_data, status=status.HTTP_201_CREATED)
         response.set_cookie(
             'sessionId', session.session_token, expires=expires_at,
-            httponly=False,  # Change to True if you don't need JavaScript access
+            httponly=True,  # Change to True if you don't need JavaScript access
             secure=False,  # Use False in local development
-            samesite=None
+            samesite='Lax'  # Adjust as needed
         )
         csrf_token = get_token(request)
         response['X-CSRFToken'] = csrf_token
@@ -176,9 +176,9 @@ class GoogleLogin(APIView):
             response = Response(customer_data, status=status.HTTP_200_OK)
             response.set_cookie(
                 'sessionId', session.session_token, expires=expires_at,
-                httponly=False,  # Change to True if you don't need JavaScript access
+                httponly=True,  # Change to True if you don't need JavaScript access
                 secure=False,  # Use False in local development
-                samesite=None
+                samesite='Lax'  # Adjust as needed
             )
 
             return response
