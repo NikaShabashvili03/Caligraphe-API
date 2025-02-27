@@ -44,7 +44,10 @@ class SupervisorLoginView(generics.GenericAPIView):
         
         response = Response(supervisor_data, status=status.HTTP_200_OK)
         response.set_cookie(
-            'sessionId', session.session_token, expires=expires_at
+            'sessionId', session.session_token, expires=expires_at,
+            httponly=False,  # Change to True if you don't need JavaScript access
+            secure=True,  # Use False in local development
+            samesite="Strict"
         )
         response['X-CSRFToken'] = csrf_token
         return response
