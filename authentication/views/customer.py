@@ -54,7 +54,7 @@ class CustomerRegisterView(generics.GenericAPIView):
             'sessionId', session.session_token, expires=expires_at,
             httponly=False, 
             secure=False, 
-            samesite="Strict"
+            samesite=None
         )
         csrf_token = get_token(request)
         response['X-CSRFToken'] = csrf_token
@@ -97,7 +97,7 @@ class CustomerLoginView(generics.GenericAPIView):
             'sessionId', session.session_token, expires=expires_at,
             httponly=False,  # Change to True if you don't need JavaScript access
             secure=False,  # Use False in local development
-            samesite="Strict"
+            samesite=None
         )
         csrf_token = get_token(request)
         response['X-CSRFToken'] = csrf_token
@@ -178,7 +178,7 @@ class GoogleLogin(APIView):
                 'sessionId', session.session_token, expires=expires_at,
                 httponly=False,  # Change to True if you don't need JavaScript access
                 secure=False,  # Use False in local development
-                samesite="Strict"
+                samesite=None
             )
 
             return response

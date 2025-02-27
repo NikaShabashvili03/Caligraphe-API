@@ -202,23 +202,26 @@ CORS_ALLOW_METHODS = [
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
     'http://127.0.0.1:5173',
-    'https://caligraphe-api.onrender.com'
+    'https://caligraphe-api.onrender.com',
+    'https://caligraphy-front.vercel.app'
 ]
 
 ALLOWED_HOSTS = [
     '127.0.0.1', 
     'localhost',
-    'caligraphe-api.onrender.com'
+    'caligraphe-api.onrender.com',
+    'https://caligraphy-front.vercel.app'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     'http://localhost:8000',
-    'https://caligraphe-api.onrender.com'
+    'https://caligraphe-api.onrender.com',
+    'https://caligraphy-front.vercel.app'
 ]
 
 # Sessions
-SESSION_COOKIE_SECURE = False
-SESSION_COOKIE_SAMESITE = 'Lax'
+SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_SAMESITE = None
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'  
 SESSION_COOKIE_AGE = 60 * 60 * 24 * 7  
 SESSION_SAVE_EVERY_REQUEST = True
