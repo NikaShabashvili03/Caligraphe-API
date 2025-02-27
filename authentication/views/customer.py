@@ -1,7 +1,7 @@
 from rest_framework import generics, status
 from rest_framework.response import Response
 from authentication.serializers.customer import CustomerResetPasswordSerializer, SendCustomerResetPasswordSerializer, CustomerLoginSerializer, CustomerProfileSerializer, CustomerRegisterSerializer, SendCustomerVerificationEmailSerializer
-from ..models.session import Session, Customer
+from ..models import Session, Customer, BlackList
 from django.middleware.csrf import get_token
 import uuid
 from rest_framework import status
@@ -35,6 +35,11 @@ class CustomerRegisterView(generics.GenericAPIView):
         token = str(uuid.uuid4())
         expires_at = now() + timedelta(days=2)
 
+        blacklisted_ip = BlackList.objects.filter(ip=get_client_ip(request)).first()
+        
+        if blacklisted_ip:
+            return Response({'details': 'Your IP is blacklisted'}, status=status.HTTP_400_BAD_REQUEST)
+        
         session = Session.objects.create(
             customer=new_customer,
             session_token=token,
@@ -65,6 +70,11 @@ class CustomerLoginView(generics.GenericAPIView):
         
         customer = serializer.validated_data
 
+        blacklisted_ip = BlackList.objects.filter(ip=get_client_ip(request)).first()
+        
+        if blacklisted_ip:
+            return Response({'details': 'Your IP is blacklisted'}, status=status.HTTP_400_BAD_REQUEST)
+        
         token = str(uuid.uuid4())
         customer.last_login = now()
         customer.save()
@@ -134,6 +144,11 @@ class GoogleLogin(APIView):
             if not email:
                 return Response({"error": "Email is missing from the token"}, status=400)
 
+            blacklisted_ip = BlackList.objects.filter(ip=get_client_ip(request)).first()
+            
+            if blacklisted_ip:
+                return Response({'details': 'Your IP is blacklisted'}, status=status.HTTP_400_BAD_REQUEST)
+            
             user, created = Customer.objects.get_or_create(email=email)
 
             if created:

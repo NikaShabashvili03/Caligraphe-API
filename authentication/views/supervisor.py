@@ -1,7 +1,7 @@
 from rest_framework import generics, status
 from rest_framework.response import Response
 from ..serializers.supervisor import SupervisorLoginSerializer, SupervisorProfileSerializer
-from ..models import Session
+from ..models import Session, BlackList
 from django.middleware.csrf import get_token
 import uuid
 from rest_framework import status
@@ -21,7 +21,12 @@ class SupervisorLoginView(generics.GenericAPIView):
         csrf_token = get_token(request)
 
         supervisor = serializer.validated_data
-
+        
+        blacklisted_ip = BlackList.objects.filter(ip=get_client_ip(request)).first()
+            
+        if blacklisted_ip:
+            return Response({'details': 'Your IP is blacklisted'}, status=status.HTTP_400_BAD_REQUEST)
+        
         token = str(uuid.uuid4())
         supervisor.last_login = now()
         supervisor.save()
