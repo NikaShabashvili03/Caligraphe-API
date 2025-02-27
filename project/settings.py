@@ -190,7 +190,14 @@ CORS_ALLOW_HEADERS = list(default_headers) + [
     'Content-Type',  
 ]
 
-CORS_ALLOW_METHODS = ['*'] 
+CORS_ALLOW_METHODS = [
+    'GET',
+    'POST',
+    'PUT',
+    'PATCH',
+    'DELETE',
+    'OPTIONS'
+]
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
@@ -211,7 +218,7 @@ CSRF_TRUSTED_ORIGINS = [
 
 # Sessions
 SESSION_COOKIE_SECURE = False
-SESSION_COOKIE_SAMESITE = None
+SESSION_COOKIE_SAMESITE = 'Lax'
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'  
 SESSION_COOKIE_AGE = 60 * 60 * 24 * 7  
 SESSION_SAVE_EVERY_REQUEST = True
