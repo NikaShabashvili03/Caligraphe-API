@@ -47,7 +47,7 @@ class SupervisorLoginView(generics.GenericAPIView):
             'sessionId', session.session_token, expires=expires_at,
             httponly=False,  # Change to True if you don't need JavaScript access
             secure=False,  # Use False in local development
-            samesite="Lax"
+            samesite="Strict"
         )
         response['X-CSRFToken'] = csrf_token
         return response
