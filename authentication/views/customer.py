@@ -9,7 +9,7 @@ from datetime import timedelta
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from authentication.permissions import IsCustomer
 from django.utils.timezone import now
-
+from ..utils import get_client_ip
 
 import jwt
 from rest_framework.views import APIView
@@ -21,8 +21,6 @@ from django.conf import settings
 
 from django.template.loader import render_to_string
 from django.core.mail import send_mail
-
-from rest_framework.exceptions import PermissionDenied
 
 class CustomerRegisterView(generics.GenericAPIView):
     serializer_class = CustomerRegisterSerializer
@@ -40,6 +38,7 @@ class CustomerRegisterView(generics.GenericAPIView):
         session = Session.objects.create(
             customer=new_customer,
             session_token=token,
+            ip=get_client_ip(request),
             expires_at=expires_at,
         )
 
@@ -75,6 +74,7 @@ class CustomerLoginView(generics.GenericAPIView):
         session = Session.objects.create(
             customer=customer,
             session_token=token,
+            ip=get_client_ip(request),
             expires_at=expires_at,
         )
         
@@ -149,6 +149,7 @@ class GoogleLogin(APIView):
             session = Session.objects.create(
                 customer=user,
                 session_token=session_token,
+                ip=get_client_ip(request),
                 expires_at=expires_at
             )
 

@@ -10,6 +10,7 @@ class Session(models.Model):
     session_token = models.CharField(max_length=255, unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
     expires_at = models.DateTimeField()
+    ip = models.GenericIPAddressField(null=True, blank=True)
     
     class Meta:
           verbose_name = _("Session")

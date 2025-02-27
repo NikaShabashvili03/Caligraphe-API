@@ -9,6 +9,7 @@ from datetime import timedelta
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from django.utils.timezone import now
 from authentication.permissions import IsSupervisor
+from ..utils import get_client_ip
 
 class SupervisorLoginView(generics.GenericAPIView):
     serializer_class = SupervisorLoginSerializer
@@ -39,6 +40,7 @@ class SupervisorLoginView(generics.GenericAPIView):
         response.set_cookie(
             'sessionId',
             session.session_token,
+            ip=get_client_ip(request),
             expires=expires_at, 
         )
         response['X-CSRFToken'] = csrf_token
