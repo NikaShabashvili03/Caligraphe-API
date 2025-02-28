@@ -27,6 +27,7 @@ class CustomSessionAuthentication(BaseAuthentication):
         blacklisted_ip = BlackList.objects.filter(ip=session.ip).first()
         
         if blacklisted_ip:
+            session.delete()
             raise AuthenticationFailed('Your IP is blacklisted')
         
         if session.expires_at > timezone.now():

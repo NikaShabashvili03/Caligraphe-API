@@ -51,10 +51,12 @@ class CustomerRegisterView(generics.GenericAPIView):
 
         response = Response(customer_data, status=status.HTTP_201_CREATED)
         response.set_cookie(
-            'sessionId', session.session_token, expires=expires_at,
-            httponly=True,  # Change to True if you don't need JavaScript access
-            secure=False,  # Use False in local development
-            samesite='Lax'  # Adjust as needed
+            'sessionId',
+            session.session_token,
+            expires=expires_at,
+            httponly=True,
+            secure=True,  # Must be True for HTTPS
+            samesite='None'  # 'None' required for cross-site cookies with credentials
         )
         csrf_token = get_token(request)
         response['X-CSRFToken'] = csrf_token
@@ -94,10 +96,12 @@ class CustomerLoginView(generics.GenericAPIView):
         
         response = Response(customer_data, status=status.HTTP_201_CREATED)
         response.set_cookie(
-            'sessionId', session.session_token, expires=expires_at,
-            httponly=True,  # Change to True if you don't need JavaScript access
-            secure=False,  # Use False in local development
-            samesite='Lax'  # Adjust as needed
+            'sessionId',
+            session.session_token,
+            expires=expires_at,
+            httponly=True,
+            secure=True,  # Must be True for HTTPS
+            samesite='None'  # 'None' required for cross-site cookies with credentials
         )
         csrf_token = get_token(request)
         response['X-CSRFToken'] = csrf_token
@@ -175,10 +179,12 @@ class GoogleLogin(APIView):
         
             response = Response(customer_data, status=status.HTTP_200_OK)
             response.set_cookie(
-                'sessionId', session.session_token, expires=expires_at,
-                httponly=True,  # Change to True if you don't need JavaScript access
-                secure=False,  # Use False in local development
-                samesite='Lax'  # Adjust as needed
+                'sessionId',
+                session.session_token,
+                expires=expires_at,
+                httponly=True,
+                secure=True,  # Must be True for HTTPS
+                samesite='None'  # 'None' required for cross-site cookies with credentials
             )
 
             return response

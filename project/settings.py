@@ -221,13 +221,14 @@ CSRF_TRUSTED_ORIGINS = [
 
 # Sessions
 SESSION_COOKIE_SECURE = False  
-SESSION_COOKIE_SAMESITE = 'Lax' 
+SESSION_COOKIE_SAMESITE = 'None' 
+SESSION_COOKIE_DOMAIN = ".caligraphy-front.vercel.app" 
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 SESSION_COOKIE_AGE = 60 * 60 * 24 * 7
 SESSION_SAVE_EVERY_REQUEST = True
 
 
-CSRF_COOKIE_SECURE = False 
+CSRF_COOKIE_SECURE = True
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
@@ -247,6 +248,20 @@ DATABASES = {
         },
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',  # or 'django.db.backends.mysql'
+#         'NAME': 'caligraphe',
+#         'USER': 'root',
+#         'PASSWORD': 'root',
+#         'HOST': 'localhost',
+#         'PORT': '3306',  # or '3306' for MySQL
+#         'OPTIONS': {
+#             'charset': 'utf8mb4',
+#         },
+#     }
+# }
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
