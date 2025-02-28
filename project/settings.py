@@ -225,7 +225,7 @@ SESSION_COOKIE_SAMESITE = 'None'
 SESSION_COOKIE_DOMAIN = ".caligraphy-front.vercel.app" 
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 SESSION_COOKIE_AGE = 60 * 60 * 24 * 7
-SESSION_SAVE_EVERY_REQUEST = True
+SESSION_SAVE_EVERY_REQUEST = False
 
 
 CSRF_COOKIE_SECURE = True
