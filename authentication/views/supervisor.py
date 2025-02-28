@@ -48,8 +48,8 @@ class SupervisorLoginView(generics.GenericAPIView):
             session.session_token,
             expires=expires_at,
             httponly=True,
-            secure=True,  # Must be True for HTTPS
-            samesite='None'  # 'None' required for cross-site cookies with credentials
+            secure=True, 
+            samesite='None'  
         )
         response['X-CSRFToken'] = csrf_token
         return response

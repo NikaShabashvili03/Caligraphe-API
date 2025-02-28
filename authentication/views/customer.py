@@ -116,7 +116,16 @@ class CustomerLogoutView(generics.GenericAPIView):
         response = Response({'details': 'Logged out successfully'}, status=status.HTTP_200_OK)
         if sessions:
             sessions.delete()
-            response.delete_cookie('sessionId')
+            response.set_cookie(
+                'sessionId',  
+                value='',  
+                expires='Thu, 01 Jan 1970 00:00:00 GMT',  # Expire immediately
+                max_age=0,
+                path='/',
+                httponly=True,
+                secure=True,  
+                samesite='None'
+            )
         else:
             response = Response({'details': 'Invalid session token'}, status=status.HTTP_400_BAD_REQUEST)
             
