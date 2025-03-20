@@ -231,19 +231,34 @@ CSRF_COOKIE_SECURE = True
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',  # or 'django.db.backends.mysql'
+#         'NAME': 'defaultdb',
+#         'USER': 'avnadmin',
+#         'PASSWORD': 'AVNS_MAwqgjOKyCFVtz8M3O3',
+#         'HOST': 'mysql-2e91a58d-shabashvilinika-e2db.c.aivencloud.com',
+#         'PORT': '17842',  # or '3306' for MySQL
+#         'OPTIONS': {
+#             'charset': 'utf8mb4',
+#             'ssl': {
+#                 'ca': r'ca.pem',  # Path to the certificate file
+#             },
+#         },
+#     }
+# }
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',  # or 'django.db.backends.mysql'
-        'NAME': 'defaultdb',
-        'USER': 'avnadmin',
-        'PASSWORD': 'AVNS_MAwqgjOKyCFVtz8M3O3',
-        'HOST': 'mysql-2e91a58d-shabashvilinika-e2db.c.aivencloud.com',
-        'PORT': '17842',  # or '3306' for MySQL
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'caligraphy',  # Change this to your database name
+        'USER': 'root',  # Assuming you're using the root user
+        'PASSWORD': 'root',  # Replace with your actual MySQL password
+        'HOST': 'localhost',  # For local MySQL server
+        'PORT': '3306',  # Default MySQL port
         'OPTIONS': {
             'charset': 'utf8mb4',
-            'ssl': {
-                'ca': r'ca.pem',  # Path to the certificate file
-            },
         },
     }
 }
