@@ -119,7 +119,7 @@ class CustomerLogoutView(generics.GenericAPIView):
             response.set_cookie(
                 'sessionId',  
                 value='',  
-                expires='Thu, 01 Jan 1970 00:00:00 GMT',  # Expire immediately
+                expires='Thu, 01 Jan 1970 00:00:00 GMT',
                 max_age=0,
                 path='/',
                 httponly=True,
